@@ -47,7 +47,7 @@ article.media-post > footer ul {
   margin: 1em;
   padding: 1em;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -55,6 +55,10 @@ article.media-post > footer ul {
 
 #modal p {
   margin-bottom: 0;
+}
+
+.activated-heart {
+  color: red;
 }
 
 .hidden {
