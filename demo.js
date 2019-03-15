@@ -10,10 +10,13 @@
 
 function mimicServerCall(url="http://mimicServer.example.com", config={}) {
   return new Promise(function(resolve, reject) {
-    console.log("The fake server at mimicServer called saw a request!");
     setTimeout(function() {
-      if (config.forceFailure) reject("Failure was forced");
-      resolve("Pretend remote server notified of action!");
+      let isRandomFailure = Math.random() < .2
+      if (isRandomFailure) {
+        reject("Random server error. Try again.");
+      } else {
+        resolve("Pretend remote server notified of action!");
+      }
     }, 300);
   });
 }

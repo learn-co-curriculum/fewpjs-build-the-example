@@ -7,7 +7,9 @@ function testFunc() {
   let likes = document.getElementsByClassName('like')
   for (let el of likes) {
     el.addEventListener('click', () => {
-      let heart = el.getElementsByTagName('span')[0]
+      const heart = el.getElementsByTagName('span')[0]
+      const modal = document.getElementById('modal')
+      const modalMessage = document.getElementById('modal-message')
 
       if (heart.textContent === FULL_HEART) {
         heart.textContent = EMPTY_HEART
@@ -15,15 +17,18 @@ function testFunc() {
         return
       }
 
-      let forceFailure = Math.random() < .2
-      mimicServerCall('fakeurl', {forceFailure})
+      mimicServerCall()
       .then(() => {
-        let heart = el.getElementsByTagName('span')[0]
         heart.style.color = 'red'
         heart.textContent = FULL_HEART
       })
-      .catch(() => {
-        document.write('sadness')
+      .catch(error => {
+        modal.classList.remove('hidden')
+        modalMessage.textContent = error 
+
+        setTimeout(() => {
+          modal.classList.add('hidden')
+        }, 5000)
       })
     })
   }
