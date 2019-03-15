@@ -3,6 +3,10 @@ body {
   background-color: rgb(29,161,242);
 }
 
+.like {
+  cursor: pointer;
+}
+
 body h1 {
   color: #FFF;
 }
