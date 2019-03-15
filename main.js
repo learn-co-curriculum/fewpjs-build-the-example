@@ -3,38 +3,9 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
-testFunc()
 
-function testFunc() {
-  let likes = document.getElementsByClassName('like')
-  for (let el of likes) {
-    el.addEventListener('click', () => {
-      const heart = el.getElementsByTagName('span')[0]
-      const modal = document.getElementById('modal')
-      const modalMessage = document.getElementById('modal-message')
 
-      if (heart.textContent === FULL_HEART) {
-        heart.textContent = EMPTY_HEART
-        heart.classList.remove('activated-heart')
-        return
-      }
 
-      mimicServerCall()
-      .then(() => {
-        heart.classList.add('activated-heart')
-        heart.textContent = FULL_HEART
-      })
-      .catch(error => {
-        modal.classList.remove('hidden')
-        modalMessage.textContent = error 
-
-        setTimeout(() => {
-          modal.classList.add('hidden')
-        }, 5000)
-      })
-    })
-  }
-}
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
