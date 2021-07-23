@@ -39,6 +39,10 @@ Note that the content of the "successful" response from the server is not
 important here — we only care that it's successful. This means you will not need
 to call `.json()` on the response so you only need a single `then()` call.
 
+> Note: The tests will only check for the first part of the specification
+> (adding the `hidden` class). You should verify the rest of the behavior
+> yourself, by checking the page in the browser.
+
 Here's the specification:
 
 * Add the `.hidden` class to the error modal in the HTML so it does not appear
@@ -61,10 +65,6 @@ Here's the specification:
   `.style` properties.
 * Only manipulate the DOM once the server request responds. Do not make the
   heart full until you're inside a successful `.then` block.
-
-> Note: The tests will only check for the first part of the specification
-> (adding the `hidden` class). You should verify the rest of the behavior
-> yourself, by checking the page in the browser.
 
 ## Conclusion
 
